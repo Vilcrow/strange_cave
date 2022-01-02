@@ -1,0 +1,209 @@
+Documentation of the game "Strage Cave" by Vilcrow.
+
+Copyright (C) 2022 S.V.I 'Vilcrow', <svi@vilcrow.net>
+
+--------------------------------------------------------------------------------
+LICENCE:
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+--------------------------------------------------------------------------------
+	MODULES
+
+1 COLORS.C
+	1.1 void set_colors();
+		- function sets all color pairs used in the game;
+
+2 CONST.H
+	- header file defines all constants used in the code;
+
+3 DOORS.C
+	3.1 void doors_preparation(const char *level, struct mpointer *mp);
+		- based on the map file, function generates a double linked
+          list of doors and its properties(cooordinates and type). 
+	3.2 void add_door(struct mpointer *mp, const int cur_y, const int cur_x);
+		- based on the map file, function adds new item to current list of
+          doors.
+	3.3 void rm_door(struct mpointer *mp, const int cur_y, const int cur_x);
+		- function removes a door from the list if it is open.
+	3.4 void doors_check(struct mpointer *mp);
+		-function checks for the presence of a door next to the main character.
+	3.5 void open_door(struct mpointer *mp, struct doors *door);
+		- if main character has corresponding key, opens the door(removes door
+          from the current list.
+	3.6 void add_key(struct mpointer *mp, const int cur_y, const int cur_x,
+	             const char c);
+		- based on the map file, function adds new item to current list of
+          keys.
+	3.7 void rm_key(struct mpointer *mp, const int cur_y, const int cur_x);
+		- fuction removes a key from the list if it is taken.
+	3.8 void keys_check(struct mpointer *mp);
+		- function checks for the presence of a key next to the main character.
+          If the coordinates match, then adds key to inventory and removes it
+          from list.
+	3.9 void add_key_to_inventory(struct mpointer *mp, const char type);
+		- adds key to inventory list.
+	3.10 void show_doors(const struct mpointer *mp);
+		- shows closed doors if they are visible for main character.
+	3.11 void show_keys(const struct mpointer *mp);
+		- shows not taken keys if they are visible for main character.
+	3.12 void clear_doors(struct mpointer *mp);
+		- delete doors list.
+	3.13 short is_door(const struct mpointer *mp, const int cur_y, const int cur_x);
+		- check if there is a door at the current coordinates.
+	3.14 void clear_inventory(struct mpointer *mp);
+		- delete inventory list.
+
+4 ENEMIES.C
+	4.1 void enemy_preparation(const char *level, struct mpointer *mp);
+		- based on the map file, function adds new items to the current lists of
+          rockfalls, beetles and points.
+	4.2 void mv_rockfall(struct mpointer *mp, const char (*level));
+		- move all rockfalls. 
+	4.3 void mv_beetles(struct mpointer *mp, const char (*level));
+		- move all beetles.
+	4.4 void add_rockfall(struct mpointer *mp, const int cur_y, const int cur_x);
+		- based on the map file, function adds new item to current list
+          of rockfall.
+	4.5 void add_beetle(struct mpointer *mp, const int cur_y, const int cur_x);
+		- based on the map file, function adds new item to current list of
+          beetles.
+	4.6 void clear_enemies(struct mpointer *mp);
+		- remove lists of beetles, rockfall and points.
+
+5 GAME.C
+	5.1 void game();
+		- function changes the current level.
+	5.2 void game_flow(struct mpointer *mp, const char (*level));
+		- main game function.
+	5.3 void clear_items(struct mpointer *mp);
+		- remove all lists of the previous level.
+	5.4 void preparate_new_level(struct mpointer *mp, const int cur_y, const int cur_x);
+		- fuction sets the initial coordinates of main character in current level.
+	5.5 void level(struct mpointer *mp, const char *source, char *temp,
+           const short lev_num);
+		- preparates all items of level and checks the status of main character.
+	5.6 void finish_game(const struct mpointer *mp);
+		- ends the game if the last level is passed.
+	5.7 void game_over(const struct mpointer *mp);
+		- ends the game if main character is dead or user quit the game.
+
+6 MAIN.C
+	Main module of the programm.
+
+7 .MENUPAGE.C
+	7.1 void show_menu();
+		- show the initial page of menu.
+	7.2 void menu_selection(int *choice);
+		- change the choice.
+	7.3 void show_control_page();
+		- show key bindings accepted in the game.
+	7.4 void create_border();
+		- renders border(unused?).
+	7.5 void show_results_page(const char *srcdir);
+		- show last results.
+	7.6 void clear_results(const char *srcdir);
+		- clears all results in the results page.
+	7.7 void menu_key_up(int *pos);
+		- renders result of clicking to the up arrow.
+	7.8 void menu_key_down(int *pos);
+		- renders result of clicking to the down arrow.
+	7.9 void menu_key_enter(int *pos, int *ch);
+		- renders result of clicking to the Enter.
+	7.10 void results_page();
+		- show results page and can clear results.
+
+8 QUENTIN.C
+	8.1 void create_struct(struct mpointer **mp);
+		- initializes structure of points.
+	8.2 void change_body(struct mpointer *mp, const int q_condition);
+		- change the values of the body structure.
+	8.3 void show_quentin(const struct mpointer *mp, const char (*level));
+		- renders body of the main character.
+	8.4 void move_quentin(struct mpointer *mp, const char (*level), const int q_condition,
+	                      const short dy, const short dx);
+		- moves the main character.
+	8.5 void jump(struct mpointer *mp, const char (*level), const int q_condition);
+		- renders jump of main character.
+	8.6 void fall(struct mpointer *mp, const char (*level), const int q_condition);
+		- renders fall of main character.
+	8.7 void quentin_control(struct mpointer *mp, const char (*level));
+		- performs an action depending on the keystroke.
+	8.8 void case_key_up(struct mpointer *mp, const char (*level));
+		- 
+	8.9 void case_key_down(struct mpointer *mp, const char (*level));
+		- 
+	8.10 void case_key_left(struct mpointer *mp, const char (*level));
+		- 
+	8.11 void case_key_right(struct mpointer *mp, const char (*level));
+		- 
+	8.12 void case_key_escape(const struct mpointer *mp);
+		- 
+	8.13 void case_key_space();
+		- 
+	8.14 void case_err(struct mpointer *mp, const char (*level));
+		- 
+
+9 RENDERER.H
+	9.1 void render_permanent_background(const char *name);
+		- renders permanent background.
+	9.2 char environment_type(const int next_y, const int next_x, const char (*level));
+		- defines the type of symbol by coordinates.
+	9.3 void show_environment(const char (*level), const struct mpointer *mp);
+		- renders the current visible environment.
+	9.4 void hide_environment(const struct mpointer *mp);
+		- clears environment.
+	9.5 void render_borders(const char *name);
+		- renders borders.
+	9.6 void map_preparation(const char *source, char *temp, char (**level));
+		- creates temporary file based on source level file without symbols of
+          enemies, points, keys and doors.
+	9.7 void map_renderer(const char *(level));
+		- renders current map.
+	9.8 void add_point(struct mpointer *mp, const int cur_y, const int cur_x, const char type);
+		- based on the map file adds new item to the current list of points.
+	9.9 void rm_point(struct mpointer *mp);
+		- remove point from the current list if it is matched.
+	9.10 void show_points(const struct mpointer *mp);
+		- renders the visible points around the main character.
+	9.11 void update_points_counter(struct mpointer *mp, const char ptype);
+		- updates the counter of points.
+	9.12 void update_health_counter(struct mpointer *mp, const short shift);
+		- updates the counter of health.
+	9.13 short visibility(const struct mpointer *mp, const int cur_y, const int cur_x);
+		- function checks visibility of symbol for main character.
+	9.14 void show_counter(const struct mpointer *mp);
+		- renders the counter.
+	9.15 void show_inventory(const struct mpointer *mp);
+		- renders current condition of the inventory.
+	9.16 void render_win();
+		- renders the win page.
+	9.17 void show_level_num(const short lev_num);
+		- renders the current level num.
+
+10 RESULTS.C
+	10.1 void update_results(const char *usrname, const int points);
+		- rewrites the current results page.
+	10.2 short isbckg(const int cur_y, const int cur_x);
+		- checks it is background or results table in the results file.
+	10.3 void prev_results(struct result **res);
+		- prepares list with previous results. 
+	10.4 void preparate_res_temp(char *srcdir);
+		- prepares the file with previous results.
+	10.5 void place_result(struct result **res, struct result *newres);
+		- places the result to current list of resuts.
+	10.6 void update_result_file(const struct result *res, char *srcdir);
+		- updates the results file.
+	10.7 void rewrite_res_file(const char *srcdir, char *dstdir);
+		- rewrites the results file.
+	10.8 void ask_user_name(char *usrname);
+		- asks user name.
+
