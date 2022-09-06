@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -Wall
+CFLAGS = -Wall -g
 SRCMODULES = colors.c doors.c enemies.c game.c menupage.c quentin.c renderer.c results.c
 OBJMODULES = $(SRCMODULES:.c=.o)
 
@@ -19,5 +19,6 @@ deps.mk: $(SRCMODULES)
 run: strangecave
 				./strangecave
 
-clean: rm -f *.o strangecave
+clean:
+	rm *.o strangecave
 

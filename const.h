@@ -25,21 +25,21 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #define MAXNAMESIZE 12
 #define NAMEARR 17
 #define MAXPATHARRAY 300
-#define MENUBCKG "/usr/games/strcave/source/menu.txt"
-#define KEYBINDINGSBCKG "/usr/games/strcave/source/key_bindings.txt"
-#define BORDERSBCKG "/usr/games/strcave/source/borders.txt"
-#define LEVELONESRC "/usr/games/strcave/source/level_1.txt"
-#define LEVELTWOSRC "/usr/games/strcave/source/level_2.txt"
-#define LEVELTHREESRC "/usr/games/strcave/source/level_3.txt"
-#define LEVELFOURSRC "/usr/games/strcave/source/level_4.txt"
-#define LEVELFIVESRC "/usr/games/strcave/source/level_5.txt"
-#define LEVELSIXSRC "/usr/games/strcave/source/level_6.txt"
-#define LEVELSEVENSRC "/usr/games/strcave/source/level_7.txt"
-#define LEVELEIGHTSRC "/usr/games/strcave/source/level_8.txt"
-#define LEVELNINESRC "/usr/games/strcave/source/level_9.txt"
-#define GAMEOVER "/usr/games/strcave/source/gameover.txt"
-#define WIN "/usr/games/strcave/source/win.txt"
-#define RESEMPTY "/usr/games/strcave/source/resempty.txt" /*results files*/
+#define MENUBCKG "files/source/menu.txt"
+#define KEYBINDINGSBCKG "files/source/key_bindings.txt"
+#define BORDERSBCKG "files/source/borders.txt"
+#define LEVELONESRC "files/source/level_1.txt"
+#define LEVELTWOSRC "files/source/level_2.txt"
+#define LEVELTHREESRC "files/source/level_3.txt"
+#define LEVELFOURSRC "files/source/level_4.txt"
+#define LEVELFIVESRC "files/source/level_5.txt"
+#define LEVELSIXSRC "files/source/level_6.txt"
+#define LEVELSEVENSRC "files/source/level_7.txt"
+#define LEVELEIGHTSRC "files/source/level_8.txt"
+#define LEVELNINESRC "files/source/level_9.txt"
+#define GAMEOVER "files/source/gameover.txt"
+#define WIN "files/source/win.txt"
+#define RESEMPTY "files/source/resempty.txt" /*results files*/
 #define RESSRC "/ressrc.txt"
 #define RESTEMP "/tmp/restemp.txt"
 #define LEVONE "/tmp/strcave_lev1.txt"  /*temporary files*/
