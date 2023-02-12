@@ -1,6 +1,6 @@
 Documentation of the game "Strage Cave" by Vilcrow.
 
-Copyright (C) 2022 S.V.I 'Vilcrow', <svi@vilcrow.net>
+Copyright (C) 2022-2023 S.V.I 'Vilcrow', <svi@vilcrow.net>
 
 --------------------------------------------------------------------------------
 LICENCE:
@@ -206,4 +206,3 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 		- rewrites the results file.
 	10.8 void ask_user_name(char *usrname);
 		- asks user name.
-

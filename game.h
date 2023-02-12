@@ -1,7 +1,7 @@
 /*
 Strange Cave game
 
-Copyright (C) 2022 S.V.I 'Vilcrow', <svi@vilcrow.net>
+Copyright (C) 2022-2023 S.V.I 'Vilcrow', <svi@vilcrow.net>
 --------------------------------------------------------------------------------
 LICENCE:
 This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------
 */
+
 #ifndef GAME_H_SENTRY
 #define GAME_H_SENTRY
 
